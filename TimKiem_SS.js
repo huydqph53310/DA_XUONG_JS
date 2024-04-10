@@ -90,12 +90,12 @@ function Show_search() {
         var Add_Product = document.createElement("button");
         var Buy_Product = document.createElement("button");
         Add_Product.classList.add("btn");
-        Add_Product.classList.add("btn-primary");
+        Add_Product.classList.add("btn-outline-success");
         Add_Product.id = i;
         Add_Product.textContent = "Thêm vào giỏ hàng";
         Buy_Product.style.marginBottom = "15px";
         Buy_Product.classList.add("btn");
-        Buy_Product.classList.add("btn-primary");
+        Buy_Product.classList.add("btn-outline-dark");
         Buy_Product.textContent = "Đặt mua";
         Add_Product.style.marginBottom = "15px";
         Add_Product.style.marginRight = "15px";

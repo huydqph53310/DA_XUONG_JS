@@ -84,7 +84,7 @@ function Add_Cart() {
         div_mod.appendChild(div_mod2);
         var button = document.createElement("button");
         button.classList.add("btn");
-        button.classList.add("btn-primary");
+        button.classList.add("btn-outline-success");
         button.textContent = "Đặt mua ngay";
         button.onclick = function () {
             window.location.href = "/Product_Cart/Buy_Product.html";
@@ -92,7 +92,7 @@ function Add_Cart() {
         div_mod2.appendChild(button);
         var button2 = document.createElement("button");
         button2.classList.add("btn");
-        button2.classList.add("btn-primary");
+        button2.classList.add("btn-outline-dark");
         button2.style.marginLeft = "25px";
         button2.textContent = "Xóa khỏi giỏ hàng";
         button2.onclick = function () {

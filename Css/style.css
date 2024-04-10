@@ -50,7 +50,11 @@ select {
         background-repeat: no-repeat;
         background-position: right 10px center;
     }
-    .form-mod{
+.form-mod{
         width: 90%;
         margin: auto;
-    }
+}
+/* Phông chữ mặc định */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

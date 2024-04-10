@@ -10,6 +10,8 @@ function Show(object){
             if (dem % 3 == 0) {
                 var row = document.createElement("div");
                 row.classList.add("row");
+                row.classList.add('row-cols-1');
+                row.classList.add('row-cols-md-3');
                 var Mod = document.getElementById("Product_List");
                 if(Mod){
                     Mod.appendChild(row);
@@ -17,28 +19,31 @@ function Show(object){
                 console.log(row);
             }
             var col = document.createElement("div");
-            col.classList.add("col-lg-4");
+            col.classList.add("col");
+            col.classList.add('mb-4')
             col.classList.add("mod");
             col.style.borderRadius = "5px";
             var Product_cart = document.createElement("div");
             Product_cart.style.margin = "auto";
             Product_cart.classList.add("cart");
-            Product_cart.style = "width: 18rem;";
+            Product_cart.style = "max-width: 18rem;";
             var Img_Pr = document.createElement("img");
             Img_Pr.src = object[i].src;
             Img_Pr.style.width = "350px";
             Img_Pr.style.height = "300px"
             Img_Pr.style.margin = "auto";
             Img_Pr.style.borderRadius = "5%";
-            Img_Pr.style.padding = "15px";
+            Img_Pr.style.padding = "25px";
             row.appendChild(col); /// col là con của row
             col.appendChild(Product_cart); // Product_cart là con của col
             Product_cart.appendChild(Img_Pr);
             var Body_Product = document.createElement("div");
             Body_Product.classList.add("cart-body");
+            Body_Product.classList.add('text-info')
             Product_cart.appendChild(Body_Product); //
-            var Name_Product = document.createElement("h5");
+            var Name_Product = document.createElement("h4");
             Name_Product.classList.add("card-title");
+            Name_Product.style.color = "red";
             Name_Product.textContent = object[i].MSP + ": " + object[i].Name_Product;
             Body_Product.appendChild(Name_Product);
             var Comment_Product = document.createElement("p");
@@ -53,12 +58,12 @@ function Show(object){
             var Add_Product = document.createElement("button");
             var Buy_Product = document.createElement("button");
             Add_Product.classList.add("btn");
-            Add_Product.classList.add("btn-primary");
+            Add_Product.classList.add("btn-outline-success");
             Add_Product.id = i;
             Add_Product.textContent = "Them vao gio hang";
             Buy_Product.style.marginBottom = "15px";
             Buy_Product.classList.add("btn");
-            Buy_Product.classList.add("btn-primary");
+            Buy_Product.classList.add("btn-outline-dark");
             Buy_Product.textContent = "Đặt mua";
             Buy_Product.onclick = function () {
                 window.location.href = "/Product_Cart/Buy_Product.html";
