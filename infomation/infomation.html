@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <style>
+    /* CSS cho trang */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        color: #333;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header h1, section h2 {
+        text-align: center;
+    }
+    section {
+        margin-bottom: 30px;
+    }
+    section p {
+        line-height: 1.6;
+    }
+    footer {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #ccc;
+    }
+</style>
+  <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <a class="navbar-brand" href="#" style="color: white;">HUY - DEV</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="../index.html" style="color: white;">Trang Chủ<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="infomation.html" style="color: white;">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sản Phẩm
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="List_Brand">  
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#" style="color: white;">Hỗ Trợ</a>
+                    </li>
+                  </ul>
+                  <div id="List_Cart">
+                    <a href="../Product_Cart.html"><img src="../IMG/Product_Cart.png" alt="" style="width: 40px; height: 40px; margin-right: 20px; cursor: pointer;"></a>
+                    </div>
+                    <form class="form-inline my-2 my-lg-0" action="../TimKiem.html">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Sản phẩm" aria-label="Search" id="search">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="Timkiem()">Search</button>
+                    </form>
+                </div>
+              </nav>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="container">
+      <header>
+          <h1>Chào mừng bạn đến với Công ty TNHH Kỹ Thuật DEV-CRACK</h1>
+      </header>
+      <section>
+          <h2>Giới thiệu về chúng tôi</h2>
+          <p>Công ty TNHH Kỹ Thuật DEV-CRACK là một trong những công ty hàng đầu trong lĩnh vực phát triển và cung cấp các giải pháp thương mại điện tử. Chúng tôi cam kết mang đến cho khách hàng những trải nghiệm mua sắm trực tuyến tốt nhất, với sản phẩm đa dạng, chất lượng và dịch vụ chăm sóc khách hàng chuyên nghiệp.</p>
+          <p>Chúng tôi không chỉ là một trang web bán hàng, mà còn là nơi để các nhà phát triển, nhà thiết kế và những người yêu công nghệ có thể tìm kiếm sự sáng tạo, cùng nhau xây dựng các dự án kỹ thuật hoành tráng.</p>
+      </section>
+      <section>
+          <h2>Sản phẩm và dịch vụ</h2>
+          <p>DEV-CRACK cung cấp một loạt các sản phẩm và dịch vụ, bao gồm:</p>
+          <ul>
+              <li>Các sản phẩm điện tử tiêu dùng như điện thoại, máy tính bảng, laptop.</li>
+              <li>Thiết bị gia dụng thông minh và tiện ích cho gia đình.</li>
+              <li>Phần mềm và ứng dụng phát triển từ nhóm kỹ sư tài năng của chúng tôi.</li>
+              <li>Dịch vụ tư vấn và hỗ trợ kỹ thuật cho khách hàng.</li>
+          </ul>
+      </section>
+      <section>
+          <h2>Cam kết của chúng tôi</h2>
+          <p>Với sứ mệnh làm việc "Không ngừng sáng tạo, không ngừng phát triển", chúng tôi cam kết:</p>
+          <ul>
+              <li>Đảm bảo chất lượng sản phẩm và dịch vụ.</li>
+              <li>Luôn lắng nghe và đáp ứng nhu cầu của khách hàng.</li>
+              <li>Phát triển môi trường làm việc tích cực và sáng tạo cho nhân viên.</li>
+              <li>Đóng góp tích cực vào cộng đồng và xã hội.</li>
+          </ul>
+      </section>
+      <section>
+          <h2>Liên hệ</h2>
+          <p>Nếu bạn cần hỗ trợ hoặc có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi qua:</p>
+          <p>Email: contact@dev-crack.com</p>
+          <p>Điện thoại: 0123 456 789</p>
+      </section>
+  </div>
+  <footer>
+      <p>&copy; 2024 Công ty TNHH Kỹ Thuật DEV-CRACK. All rights reserved.</p>
+  </footer>
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+  <script src="infomation.js"></script>
+  <script src="../index.js"></script>
+  <script type="module" src="../TimKiem_SS.js"></script>
+</html>

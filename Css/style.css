@@ -1,0 +1,56 @@
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 300px;
+    margin-bottom: 10px;   
+}
+
+/* Style cho button */
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Style khi di chuột qua button */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style cho input submit */
+input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Style khi di chuột qua input submit */
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+        appearance: none; /* Loại bỏ giao diện mặc định của select trên các trình duyệt */
+        -webkit-appearance: none; /* Loại bỏ giao diện mặc định của select trên trình duyệt Safari */
+        background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>'); /* Thêm một mũi tên xuống bên phải của select */
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+    }
+    .form-mod{
+        width: 90%;
+        margin: auto;
+    }

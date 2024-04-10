@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      .info_mod,.info_mod1,.info_mod2
+      {
+        text-decoration: none;
+        margin-top: 20px;
+      }
+      .mod {
+    background-color: #fff;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+.mod:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border: 1px solid red;
+}
+    </style>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <a class="navbar-brand" href="#" style="color: white;">HUY - DEV</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto"> 
+                    <li class="nav-item active">
+                      <a class="nav-link" href="index.html" style="color: white;">Trang Chủ<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./infomation/infomation.html" style="color: white;">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item dropdown" id="List_Brand_content">
+                      <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
+                        Sản Phẩm
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="List_Brand">  
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#" style="color: white;">Hỗ Trợ</a>
+                    </li>
+                  </ul>
+                  <div id="List_Cart">
+                  <img src="IMG/Product_Cart.png" alt="" style="width: 40px; height: 40px; margin-right: 20px; cursor: pointer;" onclick="Product_Cart()">
+                  </div>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Sản phẩm" aria-label="Search" id="search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="Timkiem()">Search</>
+                  </form>
+                </div>
+              </nav>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="text-align: center;" id="Name_Product">Tên Sản Phẩm</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container" id= "Item_view">
+      <div class="row">
+          <div class="col-lg-4" style="border: 1px solid black;">
+            <div class="col-lg-12" style="border: 1px solid black; margin: 5px;">
+              <h1 style="text-align: center;" id="img">Ảnh Sản phẩm</h1>
+            </div>
+            <div class="col-lg-12" style="border: 1px solid black; margin: 5px;">
+              <h1 style="text-align: center;" id="item">Thêm Item</h1>
+            </div>
+            <div class="col-lg-12" style="border: 1px solid black; margin: 5px;">
+              <h1 style="text-align: center;" id="cmt">Mô thả sơ qua về cấu hình</h1>
+            </div>
+            <div class="col-lg-12" style="border: 1px solid black; margin: 5px;">
+              <h1 style="text-align: center;" id="info_P">Thông tin</h1>
+            </div>
+          </div>
+          <div class="col-lg-8" style="border: 1px solid black;">
+            <div class="col-lg-12" style="border: 1px solid black; margin: 5px;">
+              <h1 style="text-align: center;" id="Price">Giá</h1>
+            </div>
+            <div class="col-lg-12" style="border: 1px solid black; margin: 5px;">
+              <h1 style="text-align: center;" id="gift">khuyến mãi</h1>
+            </div>
+            <div class="col-lg-12" style="border: 1px solid black; margin: 5px;">
+              <h1 style="text-align: center;" id="buy_now">Mua Ngay</h1>
+            </div>
+            <div class="col-lg-12" style="border: 1px solid black; margin: 5px; display: flex;">
+              <h1 style="text-align: center;" id="buy_now_1">Trả góp 0%</h1>
+              <h1 style="text-align: center;" id="buy_now_2">Trả góp qua thẻ</h1>
+            </div>
+        </div>
+      </div>
+  </div>
+    <div class="container" id="Product_List_1">
+    </div>
+    <div class="container-fluid" style="margin-top: 40px;">
+      <div class="row" id="Footer">
+        <div class="col-lg-4" id="info">
+        </div>
+        <div class="col-lg-4" id="info2">   
+        </div>
+        <div class="col-lg-4" id="info3">
+        </div>
+      </div>
+    </div>      
+    <div id="copyright" class="container-fluid" style=" background-color: aliceblue; text-align: center;">
+      <div class="row">
+        <div class="col-lg-12">
+          <p style="margin: 5px;">"© 2024 - Trang web thuộc quyền sở hữu công ty TNHH kỹ thuật DEV-CRACK - Trang thuộc sở hữu, phân quyền, sản xuất, chịu trách nhiệm nội dung: Đỗ Quốc Huy"</p>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
