@@ -58,3 +58,15 @@ select {
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+.modal-content {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  .modal-header {
+    border-bottom: none;
+  }
+  .close {
+    color: white;
+  }
+  body.modal-open .container {
+    pointer-events: none;
+  }
