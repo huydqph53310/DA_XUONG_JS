@@ -53,7 +53,7 @@ function Show(object){
             var Price_Product = document.createElement("h4");
             Price_Product.style.textAlign = "center"
             Price_Product.classList.add("card-text");
-            Price_Product.textContent = "Giá bán: " + object[i].Price_Product + " ₫";
+            Price_Product.textContent = "Giá bán: " + formatCurrency(object[i].Price_Product) + " ₫";
             Body_Product.appendChild(Price_Product);
             var Add_Product = document.createElement("button");
             var Buy_Product = document.createElement("button");
@@ -131,5 +131,11 @@ function updateCart(product, action) {
     }
     check = false;
 }
-
+function formatCurrency(amount) {
+    // Chia số cho 1000 và giữ ba chữ số thập phân
+    var formattedAmount = (amount / 1000).toFixed(3);
+    // Thay thế dấu chấm phân cách hàng nghìn bằng dấu chấm
+    formattedAmount = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return formattedAmount;
+}
 // bắt sự kiện click vào nút giỏ hàng

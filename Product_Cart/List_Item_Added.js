@@ -73,7 +73,7 @@ function Add_Cart() {
         div_mod.appendChild(p);
         var price = document.createElement("p");
         price.style.marginTop = "15px";
-        price.textContent = "Giá: " + cart[i].price;
+        price.textContent = "Giá: " + formatCurrency(cart[i].price) + " ₫";
         div_mod.appendChild(price);
         var Qty_p = document.createElement("p");
         Qty_p.style.marginTop = "15px";
@@ -135,4 +135,11 @@ function updateCart(product, action) {
         // Xử lý trường hợp localStorage không tồn tại hoặc không hoạt động
         console.error("Local storage is not available.");
     }
+}
+function formatCurrency(amount) {
+    // Chia số cho 1000 và giữ ba chữ số thập phân
+    var formattedAmount = (amount / 1000).toFixed(3);
+    // Thay thế dấu chấm phân cách hàng nghìn bằng dấu chấm
+    formattedAmount = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return formattedAmount;
 }
