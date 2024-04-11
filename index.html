@@ -15,17 +15,20 @@
       border-radius: 10px;
       transition: box-shadow 0.3s ease;
     }
-
-    #msi:hover {
+    .list-group-item-action:hover {
       background-color: aliceblue;
     }
 
-    .col:hover {
+    .mod:hover {
       box-shadow: 0 0 10px rgba(20, 195, 226, 0.5);
       border: 1px solid rgb(20, 195, 226);
     }
+    .btn:hover{
+      box-shadow: 0 0 10px rgba(174, 226, 20, 0.699);
+      border: 1px solid rgb(197, 131, 19);
+    }
   </style>
-  <title>Title</title>
+  <title>Trang chủ</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -69,13 +72,28 @@
                   </div>
                   <form class="form-inline my-2 my-lg-0" action="TimKiem.html">
                     <input class="form-control mr-sm-2" type="search" placeholder="Sản phẩm" aria-label="Search" id="search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="tim">Search</button>
+                    <button class="btn btn-outline-dark  my-2 my-sm-0" type="submit" id="tim">Search</button>
                   </form>
                 </div>
               </nav>
             </div>
             <br>
         </div>
+    </div>
+      <div class="modal fade" id="cartMessageModal" tabindex="-1" role="dialog" aria-labelledby="cartMessageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="cartMessageModalLabel">Thông Báo</h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="cartMessage">
+            <!-- Cart message will be displayed here -->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container">
       <div class="row">

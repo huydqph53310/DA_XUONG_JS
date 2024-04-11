@@ -192,6 +192,7 @@ function updateCart(product, action) {
         //     clearCart();
         // }
         let child = document.createElement('a');
+        child.classList.add("list-group-item-action");
         child.textContent = brand[i];
         child.href = "TimKiem.html";
         child.style.textDecoration = "none";

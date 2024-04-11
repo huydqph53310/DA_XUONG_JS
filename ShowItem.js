@@ -76,10 +76,22 @@ function Show(object){
                 var Add = {id: object[i].id, src: object[i].src, name: object[i].Name_Product, cmt: object[i].Comment_Product, price: object[i].Price_Product, Qty: object[i].Qty, msp: object[i].MSP };
                 updateCart(Add, 'add');
                 console.log(object[i].Name_Product+ " Đã Được thêm");
+                $(document).ready(function() {
+                    showCartMessage('Sản phẩm đã được thêm vào giỏ hàng.');
+                });
             }
             dem++;
         }
 }
+function showCartMessage(message) {
+    $('#cartMessage').text(message);
+    $('#cartMessageModal').modal('show');
+
+    // Tự đóng box thông báo sau 1.5 giây
+    setTimeout(function() {
+      $('#cartMessageModal').modal('hide');
+    }, 1500);
+};
 var check;
 // add Item vao gio hang
 function updateCart(product, action) {
