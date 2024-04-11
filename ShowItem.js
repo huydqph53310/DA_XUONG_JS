@@ -10,8 +10,6 @@ function Show(object){
             if (dem % 3 == 0) {
                 var row = document.createElement("div");
                 row.classList.add("row");
-                row.classList.add('row-cols-1');
-                row.classList.add('row-cols-md-3');
                 var Mod = document.getElementById("Product_List");
                 if(Mod){
                     Mod.appendChild(row);
@@ -19,8 +17,7 @@ function Show(object){
                 console.log(row);
             }
             var col = document.createElement("div");
-            col.classList.add("col");
-            col.classList.add('mb-4')
+            col.classList.add("col-lg-4");
             col.classList.add("mod");
             col.style.borderRadius = "5px";
             var Product_cart = document.createElement("div");
