@@ -1,10 +1,51 @@
 // Export hàm getData
-import { myData } from './Data/data.js';
-var mod = '';
+import { myData } from './Data/data.js';// đọc dữ liệu từ file data
+var From = document.getElementById('From');
+var To = document.getElementById('To');
+var mod = '';// input truyền vào là string nên để nó là string trước khi ép kiểu
+// Nhập hàm getData vào từ một nút button
+// bắt sự kiện click vào nút search ở trên các tab
+const getDataButton = document.getElementById("tim");
+getDataButton.addEventListener("click", getData);
+// khi bắt đầu nhập sẽ reset dữ liệu
+const inputField = document.getElementById("search");
+inputField.addEventListener("click", clearCart);
+export function getData() {
+    // Lấy phần tử input từ DOM
+    const inputField = document.getElementById("search");
+    // Lấy giá trị của phần tử input
+    const inputValue = inputField.value;
+    // Hiển thị giá trị lấy được
+    console.log("Search Iteam name is: " + inputValue);
+    Input(inputValue);
+}
+function SearchPrice() {
+    console.log(From.value + " " + To.value);
+    ReadInput_Fil_Price(From.value, To.value)
+}
+var brand = ['msi', 'asus', 'acer', 'lenovo', 'hp', 'dell', 'mac'];
+var father1 = document.getElementById('List_Brand');
+for (let i in brand) {
+    let child = document.createElement('a');
+    child.classList.add("list-group-item-action");
+    child.textContent = brand[i];
+    child.href = "TimKiem.html";
+    child.style.textDecoration = "none";
+    child.style.color = "black";
+    child.classList.add('list-group-item');
+    child.id = brand[i];
+    child.addEventListener('click', function () {
+        Input(brand[i]);
+        session = brand[i];
+        bool = false;
+    });
+    father1.appendChild(child);
+}
 export function Input(value) {
     mod = value
     ReadInput(mod);
 }
+// đọc dữ liệu đưa vào và bắt đầu so sánh
 function ReadInput(content) {
     const OBJ = {
         PK: content,
@@ -14,7 +55,7 @@ function ReadInput(content) {
     Output(Search_For_PK);
     // Output(Search_For_PK);
 }
-
+/// dữ liệu lọc theo giá được đưa vào và bắt đâu so sánh
 function ReadInput_Fil_Price(num1, num2) {
     const OBJ = {
         From: num1,
@@ -31,6 +72,8 @@ function ReadInput_Fil_Price(num1, num2) {
     console.log(typeof (num1), typeof (num2));
     // Output(Search_For_Price);
 }
+// đầu ra gồm các thuộc tính được lấy ở mydata.
+// thêm vào hàm Tìm kiếm thuộc localStorage
 function Output(Product) {
     for (let i in Product) {
         var Add = { id: Product[i].id, src: Product[i].src, name: Product[i].Name_Product, cmt: Product[i].Comment_Product, price: Product[i].Price_Product, Qty: Product[i].Qty, msp: Product[i].MSP, bc: Product[i].barcode };
@@ -38,6 +81,7 @@ function Output(Product) {
         console.log(Product[i].Name_Product + "Đã Được thêm");
     }
 }
+// Xóa toàn bộ trong loalstorage
 function clearCart() {
     // Kiểm tra xem có dữ liệu cart không
     if (localStorage.getItem('cart_search') !== null) {
@@ -56,7 +100,7 @@ if (cartData !== null) {
         console.log("Không có dữ liệu trong Local Storage.");
     }
 }
-
+// tạo giao diện và in ra màn hình thông tin nó tìm được
 function Show_search() {
     var dem = 0;
     for (let i in cart_search) {
@@ -64,7 +108,7 @@ function Show_search() {
             var row = document.createElement("div");
             row.classList.add("row");
             var Mod = document.getElementById("Product_List_1");
-            if (Mod) {
+            if (Mod) { // fix lỗi khi nó tồn tại mới tạo *(lỗi console)
                 Mod.appendChild(row);
             }
             console.log(row);
@@ -73,18 +117,18 @@ function Show_search() {
         col.classList.add("col-lg-4");
         col.classList.add("mod");
         col.style.borderRadius = "5px";
+        row.appendChild(col); /// col là con của row
         var Product_cart = document.createElement("div");
         Product_cart.style.margin = "auto";
         Product_cart.classList.add("cart");
         Product_cart.style = "width: 18rem;";
         var Img_Pr = document.createElement("img");
-        Img_Pr.src = cart_search[i].src;
+        Img_Pr.src = cart_search[i].src; //
         Img_Pr.style.width = "350px";
         Img_Pr.style.height = "300px"
         Img_Pr.style.margin = "auto";
         Img_Pr.style.borderRadius = "5%";
         Img_Pr.style.padding = "15px"
-        row.appendChild(col); /// col là con của row
         col.appendChild(Product_cart); // Product_cart là con của col
         Product_cart.appendChild(Img_Pr);
         var Body_Product = document.createElement("div");
@@ -92,16 +136,16 @@ function Show_search() {
         Product_cart.appendChild(Body_Product); //
         var Name_Product = document.createElement("h5");
         Name_Product.classList.add("card-title");
-        Name_Product.textContent = cart_search[i].msp + ": " + cart_search[i].name;
+        Name_Product.textContent = cart_search[i].msp + ": " + cart_search[i].name; // 
         Body_Product.appendChild(Name_Product);
         var Comment_Product = document.createElement("p");
         Comment_Product.classList.add("card-text");
-        Comment_Product.textContent = "Cấu hình: " + cart_search[i].cmt;
+        Comment_Product.textContent = "Cấu hình: " + cart_search[i].cmt; //
         Body_Product.appendChild(Comment_Product);
         var Price_Product = document.createElement("h4");
         Price_Product.style.textAlign = "center"
         Price_Product.classList.add("card-text");
-        Price_Product.textContent = "Giá bán: " + formatCurrency(cart_search[i].price) + " ₫";
+        Price_Product.textContent = "Giá bán: " + formatCurrency(cart_search[i].price) + " ₫"; //
         Body_Product.appendChild(Price_Product);
         var Add_Product = document.createElement("button");
         var Buy_Product = document.createElement("button");
@@ -131,7 +175,6 @@ function Show_search() {
 function showCartMessage(message) {
     $('#cartMessage').text(message);
     $('#cartMessageModal').modal('show');
-
     // Tự đóng box thông báo sau 3 giây
     setTimeout(function () {
         $('#cartMessageModal').modal('hide');
@@ -187,49 +230,22 @@ function updateCart(product, action) {
     }
     check = false;
 }
-// var bool = true;
+var element = document.getElementById('List_Brand_content');
+var From_mover = document.getElementById('From');
+element.addEventListener('mouseover', function () {
+    // thực hiện xóa các item tron localstorage
+    clearCart();
+});
 // // Lọc sản phẩm theo nhãn hàng
-var brand = ['msi', 'asus', 'acer', 'lenovo', 'hp', 'dell', 'mac'];
-var father1 = document.getElementById('List_Brand');
-for (let i in brand) {
-    // if (cartData !== null) {
-    //     clearCart();
-    // }
-    let child = document.createElement('a');
-    child.classList.add("list-group-item-action");
-    child.textContent = brand[i];
-    child.href = "TimKiem.html";
-    child.style.textDecoration = "none";
-    child.style.color = "black";
-    child.classList.add('list-group-item');
-    child.id = brand[i];
-    child.addEventListener('click', function () {
-        Input(brand[i]);
-        session = brand[i];
-        bool = false;
-    });
-    father1.appendChild(child);
-}
-var From = document.getElementById('From');
-var To = document.getElementById('To');
 var Button_S = document.getElementById('Price_S');
-function SearchPrice() {
-    console.log(From.value + " " + To.value);
-    ReadInput_Fil_Price(From.value, To.value)
-}
 Button_S.onclick = function () {
     SearchPrice();
 }
-var element = document.getElementById('List_Brand_content');
-element.addEventListener('mouseover', function () {
-    // Đoạn mã bạn muốn thực hiện khi chuột vào phần tử hoặc các phần tử con
+From_mover.addEventListener('mouseover', function () {
+    // thực hiện xóa các item tron localstorage
     clearCart();
 });
-var element = document.getElementById('From');
-element.addEventListener('mouseover', function () {
-    // Đoạn mã bạn muốn thực hiện khi chuột vào phần tử hoặc các phần tử con
-    clearCart();
-});
+// hàm tiền tệ =))
 function formatCurrency(amount) {
     // Chia số cho 1000 và giữ ba chữ số thập phân
     var formattedAmount = (amount / 1000).toFixed(3);
@@ -237,24 +253,3 @@ function formatCurrency(amount) {
     formattedAmount = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return formattedAmount;
 }
-// FilterForBrand();
-// dùng import để lấy dữ liệu từ file index.js (lười copy qua
-export function getData() {
-    // Lấy phần tử input từ DOM
-    const inputField = document.getElementById("search");
-
-    // Lấy giá trị của phần tử input
-    const inputValue = inputField.value;
-
-    // Hiển thị giá trị lấy được
-    console.log("Your name is: " + inputValue);
-    Input(inputValue);
-
-}
-
-// Nhập hàm getData vào từ một nút button
-const getDataButton = document.getElementById("tim");
-getDataButton.addEventListener("click", getData);
-
-const inputField = document.getElementById("search");
-inputField.addEventListener("click", clearCart);

@@ -82,14 +82,6 @@ function Add_Cart() {
         var div_mod2 = document.createElement("div");
         div_mod2.classList.add("son2");
         div_mod.appendChild(div_mod2);
-        var button = document.createElement("button");
-        button.classList.add("btn");
-        button.classList.add("btn-outline-success");
-        button.textContent = "Đặt mua ngay";
-        button.onclick = function () {
-            window.location.href = "/Product_Cart/Buy_Product.html";
-        }
-        div_mod2.appendChild(button);
         var button2 = document.createElement("button");
         button2.classList.add("btn");
         button2.classList.add("btn-outline-dark");

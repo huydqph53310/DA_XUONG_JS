@@ -83,17 +83,8 @@ function Show(object){
             dem++;
         }
 }
-function showCartMessage(message) {
-    $('#cartMessage').text(message);
-    $('#cartMessageModal').modal('show');
-
-    // Tự đóng box thông báo sau 1.5 giây
-    setTimeout(function() {
-      $('#cartMessageModal').modal('hide');
-    }, 1500);
-};
-var check;
 // add Item vao gio hang
+// Đưa dữ liệu xuống với localStorage
 function updateCart(product, action) {
     // Kiểm tra xem localStorage có tồn tại không
     if (typeof localStorage !== 'undefined' && localStorage !== null) {
@@ -131,6 +122,7 @@ function updateCart(product, action) {
     }
     check = false;
 }
+//// hàm định đưa đơn vị tiền tệ
 function formatCurrency(amount) {
     // Chia số cho 1000 và giữ ba chữ số thập phân
     var formattedAmount = (amount / 1000).toFixed(3);
@@ -138,4 +130,15 @@ function formatCurrency(amount) {
     formattedAmount = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return formattedAmount;
 }
+// show thông báo in ra màn hình
+function showCartMessage(message) {
+    $('#cartMessage').text(message);
+    $('#cartMessageModal').modal('show');
+
+    // Tự đóng box thông báo sau 1.5 giây
+    setTimeout(function() {
+      $('#cartMessageModal').modal('hide');
+    }, 1500);
+};
+var check;
 // bắt sự kiện click vào nút giỏ hàng
