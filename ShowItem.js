@@ -53,7 +53,7 @@ function Show(object){
             var Price_Product = document.createElement("h4");
             Price_Product.style.textAlign = "center"
             Price_Product.classList.add("card-text");
-            Price_Product.textContent = "Giá bán: " + object[i].Price_Product;
+            Price_Product.textContent = "Giá bán: " + object[i].Price_Product + " ₫";
             Body_Product.appendChild(Price_Product);
             var Add_Product = document.createElement("button");
             var Buy_Product = document.createElement("button");

@@ -1,10 +1,11 @@
-function formatInput() {
-    // var amount = parseFloat(input.value.replace(/\D/g, '')); 
-    var amount = 9000;
-    // Loại bỏ tất cả các ký tự không phải số
-    if (!isNaN(amount)) {
-        amount = (amount / 1000).toFixed(3); // Chia cho 1000 và giữ ba chữ số thập phâm   
-        console.log(amount);
-    }
+function formatCurrency(amount) {
+    // Chia số cho 1000 và giữ ba chữ số thập phân
+    var formattedAmount = (amount / 1000).toFixed(3);
+    // Thay thế dấu chấm phân cách hàng nghìn bằng dấu chấm
+    formattedAmount = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return formattedAmount;
 }
-formatInput();
+
+var number = 20000000000000;
+var formattedNumber = formatCurrency(number);
+console.log(formattedNumber); // Kết quả: "9.000

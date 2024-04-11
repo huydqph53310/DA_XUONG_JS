@@ -27,6 +27,26 @@
       box-shadow: 0 0 10px rgba(174, 226, 20, 0.699);
       border: 1px solid rgb(197, 131, 19);
     }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header h1, section h2 {
+        text-align: center;
+    }
+    section {
+        margin-bottom: 30px;
+    }
+    section p {
+        line-height: 1.6;
+    }
+   footer {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #ccc;
+    }
   </style>
   <title>Trang chủ</title>
   <!-- Required meta tags -->
@@ -130,19 +150,46 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 style="text-align: center;">Sản Phẩm</h1>
-                <form action="" onsubmit="">
-                  <input type="radio" id="mathang" name="mathang" value="new">
-                  <label for="mathang" style="padding-right: 20px;">Sản Phẩm mới</label>
-                  <input type="radio" id="mathang" name="mathang" value="old">
-                  <label for="mathang" style="padding-right: 20px;">Sản Phẩm cũ</label>
-                  <input type="radio" id="mathang" name="mathang" value="new">
-                  <label for="mathang" style="padding-right: 20px;">Tin Tức</label>
+              <div class="cart-body" style="margin-top: 20px;">
+                <h3 style="text-align: center;">Tìm kiếm sản phẩm</h3>
+                <h10 style="text-align: center;">* Tìm kiếm sản phẩm theo giá</h10>
+                <form>
+                  <div class="row">
+                    <div class="col">
+                      <select class="custom-select" id="From">
+                        <option selected>Tìm Theo giá</option>
+                        <option value="500000"   >từ 5.000.000₫</option>
+                        <option value="700000"   >từ 7.000.000₫</option>
+                        <option value="1000000"  >từ 10.000.000₫</option>
+                        <option value="20000000" >Từ 20.000.000₫</option>
+                      </select>
+                    </div>
+                    <div class="col">              
+                      <select class="custom-select" id="To">
+                        <option selected>Tìm Theo giá</option>
+                        <option value="15000000">Dưới 15.000.000₫</option>
+                        <option value="20000000">Dưới 20.000.000₫</option>
+                        <option value="25000000">Dưới 25.000.000₫</option>
+                        <option value="35000000">Dưới 35.000.000₫</option>
+                        <option value="40000000">Dưới 40.000.000₫</option>
+                        <option value="50000000">Dưới 50.000.000₫</option>
+                      </select>
+                    </div>
+                    <div class="col-1">
+                      <a href="TimKiem.html">
+                        <button type="button" class="btn btn-outline-dark" id="Price_S">Search</button>
+                      </a>
+                    </div>
+                  </div>
                 </form>
+              </div>
             </div>
         </div>
     </div>
-    <div class="container" id="Product_List">
+    <div class="container" id="Product_List" style="margin-top: 20px;">
+      <div class="cart-body" style="margin-top: 20px;">
+        <h1 style="text-align: center; color: rgb(79, 230, 219);">Danh Sách Sản Phẩm</h1>
+      </div>
     </div>
     <div class="container-fluid" style="margin-top: 40px;">
       <div class="row" id="Footer">
@@ -154,14 +201,9 @@
         </div>
       </div>
     </div>      
-    <div id="copyright" class="container-fluid" style=" background-color: aliceblue; text-align: center;">
-      <div class="row">
-        <div class="col-lg-12">
-          <p style="margin: 5px;">"© 2024 - Trang web thuộc quyền sở hữu công ty TNHH kỹ thuật DEV-CRACK - Trang thuộc sở hữu, phân quyền, sản xuất, chịu trách nhiệm nội dung: Đỗ Quốc Huy"</p>
-        </div>
-      </div>
-    </div>
-  </div>
+    <footer>
+      <p style="margin: 5px;">"© 2024 - Trang web thuộc quyền sở hữu công ty TNHH kỹ thuật DEV-CRACK - Trang thuộc sở hữu, phân quyền, sản xuất, chịu trách nhiệm nội dung: Đỗ Quốc Huy"</p>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

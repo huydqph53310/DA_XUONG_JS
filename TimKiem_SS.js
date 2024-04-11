@@ -1,7 +1,6 @@
 // Export hàm getData
 import { myData } from './Data/data.js';
 var mod = '';
-
 export function Input(value) {
     mod = value
     ReadInput(mod);
@@ -10,14 +9,31 @@ function ReadInput(content) {
     const OBJ = {
         PK: content,
     }
-    const asusProducts = myData.filter(myData => myData.PK === OBJ.PK);
-    console.log(asusProducts);
-    Output(asusProducts);
-    // Output(asusProducts);
+    const Search_For_PK = myData.filter(myData => myData.PK === OBJ.PK);
+    console.log(Search_For_PK);
+    Output(Search_For_PK);
+    // Output(Search_For_PK);
+}
+
+function ReadInput_Fil_Price(num1, num2) {
+    const OBJ = {
+        From: num1,
+        To: num2,
+    }
+    for (let i in myData) {
+        if (myData[i].Price_Product >= Number(From) && myData[i].Price_Product <= Number(To)) {
+            console.log(myData[i].product);
+        }
+    }
+    const Search_For_Price = myData.filter(myData => myData.Price_Product >= Number(OBJ.From) && myData.Price_Product <= Number(OBJ.To));
+    console.log(Search_For_Price);
+    Output(Search_For_Price);
+    console.log(typeof (num1), typeof (num2));
+    // Output(Search_For_Price);
 }
 function Output(Product) {
     for (let i in Product) {
-        var Add = { id: Product[i].id, src: Product[i].src, name: Product[i].Name_Product, cmt: Product[i].Comment_Product, price: Product[i].Price_Product, Qty: Product[i].Qty, msp: Product[i].MSP, bc: Product[i].barcode};
+        var Add = { id: Product[i].id, src: Product[i].src, name: Product[i].Name_Product, cmt: Product[i].Comment_Product, price: Product[i].Price_Product, Qty: Product[i].Qty, msp: Product[i].MSP, bc: Product[i].barcode };
         updateCart(Add, 'search');
         console.log(Product[i].Name_Product + "Đã Được thêm");
     }
@@ -30,7 +46,6 @@ function clearCart() {
     }
 } // xóa dữ liệu trong local storage
 // add Item vao gio hang
-
 // dùng import để lấy dữ liệu từ file index.js (lười copy qua)
 var cartData = localStorage.getItem('cart_search');
 if (cartData !== null) {
@@ -86,7 +101,7 @@ function Show_search() {
         var Price_Product = document.createElement("h4");
         Price_Product.style.textAlign = "center"
         Price_Product.classList.add("card-text");
-        Price_Product.textContent = "Giá bán: " + cart_search[i].price;
+        Price_Product.textContent = "Giá bán: " + formatCurrency(cart_search[i].price) + " ₫";
         Body_Product.appendChild(Price_Product);
         var Add_Product = document.createElement("button");
         var Buy_Product = document.createElement("button");
@@ -103,32 +118,23 @@ function Show_search() {
         Body_Product.appendChild(Add_Product);
         Body_Product.appendChild(Buy_Product);
         Add_Product.onclick = function () {
-            var Add = { id: cart_search[i].id, src: cart_search[i].src, name: cart_search[i].name, cmt: cart_search[i].cmt, price: cart_search[i].price, Qty: cart_search[i].Qty,msp: cart_search[i].msp, bc: cart_search[i].barcode};
+            var Add = { id: cart_search[i].id, src: cart_search[i].src, name: cart_search[i].name, cmt: cart_search[i].cmt, price: cart_search[i].price, Qty: cart_search[i].Qty, msp: cart_search[i].msp, bc: cart_search[i].barcode };
             updateCart(Add, 'add');
             console.log(cart_search[i].name + " Đã Được thêm");
-            $(document).ready(function() {
-                var cartItemCount = 0;
-                if (cartItemCount >= 99) {
-                    showCartMessage('Không thể thêm sản phẩm vào giỏ hàng. Giỏ hàng đã đầy.');
-                  } else {
-                    // Tăng số lượng sản phẩm trong giỏ hàng
-                    cartItemCount++;
-                    // Hiển thị thông báo thành công
-                    showCartMessage('Sản phẩm đã được thêm vào giỏ hàng.');
-                  }
+            $(document).ready(function () {
+                showCartMessage('Sản phẩm đã được thêm vào giỏ hàng.');
             });
         }
         dem++;
     }
 }
-
 function showCartMessage(message) {
     $('#cartMessage').text(message);
     $('#cartMessageModal').modal('show');
 
     // Tự đóng box thông báo sau 3 giây
-    setTimeout(function() {
-      $('#cartMessageModal').modal('hide');
+    setTimeout(function () {
+        $('#cartMessageModal').modal('hide');
     }, 1500);
 };
 var check;
@@ -145,11 +151,10 @@ function updateCart(product, action) {
             // Nếu đã có giỏ hàng, chuyển đổi từ chuỗi JSON sang mảng JavaScript
             cart_search = JSON.parse(cart_search);
         }
-        if(!cart_add)
-        {
+        if (!cart_add) {
             cart_add = [];
         }
-        else{
+        else {
             cart_add = JSON.parse(cart_add);
         }
         // Thực hiện thêm hoặc xóa sản phẩm tùy thuộc vào hành động
@@ -165,7 +170,7 @@ function updateCart(product, action) {
                 cart_add.push(product);
             }
         }
-        else  if (action === 'remove') {
+        else if (action === 'remove') {
             // Xóa sản phẩm khỏi giỏ hàng (ví dụ: dựa vào id sản phẩm)
             cart_search = cart_search.filter(item => item.id !== product.id);
         }
@@ -180,40 +185,58 @@ function updateCart(product, action) {
         // Xử lý trường hợp localStorage không tồn tại hoặc không hoạt động
         console.error("Local storage is not available.");
     }
-    check=false;
+    check = false;
 }
 // var bool = true;
 // // Lọc sản phẩm theo nhãn hàng
-// function FilterForBrand() {
-    var brand = ['msi', 'asus', 'acer', 'lenovo', 'hp', 'dell', 'mac'];
-    var father1 = document.getElementById('List_Brand');
-    for (let i in brand) {
-        // if (cartData !== null) {
-        //     clearCart();
-        // }
-        let child = document.createElement('a');
-        child.classList.add("list-group-item-action");
-        child.textContent = brand[i];
-        child.href = "TimKiem.html";
-        child.style.textDecoration = "none";
-        child.style.color = "black";
-        child.classList.add('list-group-item');
-        child.id = brand[i];
-        child.addEventListener('click', function () {
-            Input(brand[i]);
-            session = brand[i];
-            bool = false;
-        });
-        father1.appendChild(child);
-    }
-// }
-
+var brand = ['msi', 'asus', 'acer', 'lenovo', 'hp', 'dell', 'mac'];
+var father1 = document.getElementById('List_Brand');
+for (let i in brand) {
+    // if (cartData !== null) {
+    //     clearCart();
+    // }
+    let child = document.createElement('a');
+    child.classList.add("list-group-item-action");
+    child.textContent = brand[i];
+    child.href = "TimKiem.html";
+    child.style.textDecoration = "none";
+    child.style.color = "black";
+    child.classList.add('list-group-item');
+    child.id = brand[i];
+    child.addEventListener('click', function () {
+        Input(brand[i]);
+        session = brand[i];
+        bool = false;
+    });
+    father1.appendChild(child);
+}
+var From = document.getElementById('From');
+var To = document.getElementById('To');
+var Button_S = document.getElementById('Price_S');
+function SearchPrice() {
+    console.log(From.value + " " + To.value);
+    ReadInput_Fil_Price(From.value, To.value)
+}
+Button_S.onclick = function () {
+    SearchPrice();
+}
 var element = document.getElementById('List_Brand_content');
-element.addEventListener('mouseover', function() {
+element.addEventListener('mouseover', function () {
     // Đoạn mã bạn muốn thực hiện khi chuột vào phần tử hoặc các phần tử con
     clearCart();
 });
-
+var element = document.getElementById('From');
+element.addEventListener('mouseover', function () {
+    // Đoạn mã bạn muốn thực hiện khi chuột vào phần tử hoặc các phần tử con
+    clearCart();
+});
+function formatCurrency(amount) {
+    // Chia số cho 1000 và giữ ba chữ số thập phân
+    var formattedAmount = (amount / 1000).toFixed(3);
+    // Thay thế dấu chấm phân cách hàng nghìn bằng dấu chấm
+    formattedAmount = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return formattedAmount;
+}
 // FilterForBrand();
 // dùng import để lấy dữ liệu từ file index.js (lười copy qua
 export function getData() {
